@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-export SECRET_KEY='w#a2st*zypodd+4cxdn6h*16tdhctll-ws#9n3loejt59w1k5i'
+export SECRET_KEY='g$^o@6fi@j71_$q2qjjqj(*873f%bd4bg4%k*6foyufx1df#t&'
 export DEBUG='True'
 
 export STRIPE_PUBLISHABLE_KEY='pk_test_D8LmMZeMzOVfijTx0iZijYXR'
