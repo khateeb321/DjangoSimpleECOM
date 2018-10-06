@@ -1,5 +1,4 @@
 """project3 URL Configuration
-
 The `urlpatterns` list routes URLs to views. For more information please see:
     https://docs.djangoproject.com/en/1.11/topics/http/urls/
 Examples:
@@ -34,5 +33,5 @@ urlpatterns = [
     url(r'^cart/', include(urls_cart)),
     url(r'^user/', include(urls_accounts)),
     url(r'^search/', include(urls_search)),
-    url(r'^media/(?P<path>.*)$', static.serve,{'document_root': MEDIA_ROOT}),
+    url(r'^media/(?P<path>.*)$', static.serve, {'document_root': MEDIA_ROOT}),
 ]

@@ -22,12 +22,12 @@ SITE_ID = 1
 # See https://docs.djangoproject.com/en/1.11/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'w#a2st*zypodd+4cxdn6h*16tdhctll-ws#9n3loejt59w1k5i'
+SECRET_KEY = 'g$^o@6fi@j71_$q2qjjqj(*873f%bd4bg4%k*6foyufx1df#t&'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = os.environ.get('DEBUG', False)
+DEBUG = True
 
-ALLOWED_HOSTS = '*'
+ALLOWED_HOSTS = []
 
 # Application definition
 
@@ -43,7 +43,7 @@ INSTALLED_APPS = [
     'products',
     'cart',
     'checkout',
-    'storages',
+    'project3.Lib.site-packages.storages',
 ]
 
 MIDDLEWARE = [
@@ -83,19 +83,12 @@ WSGI_APPLICATION = 'project3.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/1.11/ref/settings/#databases
 
-if "DATABASE_URL" in os.environ:
-    DATABASES = {'default': dj_database_url.parse(os.environ.get('DATABASE_URL')) }
-else:
-    print("Database URL not found. Using SQLite instead")
-    DATABASES = {
-        'default': {
-            'ENGINE': 'django.db.backends.sqlite3',
-            'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-            'TEST': {
-                'NAME': 'project3_test',
-            },
-        }
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
     }
+}
 
 # DATABASES = {'default': dj_database_url.parse(os.environ.get('DATABASE_URL'))}
 
@@ -139,9 +132,9 @@ USE_TZ = True
 
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
-STATICFILES_DIRS = (
-    os.path.join(BASE_DIR, 'static'),
-   )
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, "static"),
+]
 
 STRIPE_PUBLISHABLE = os.getenv('STRIPE_PUBLISHABLE')
 STRIPE_SECRET = os.getenv('STRIPE_SECRET')
@@ -150,10 +143,9 @@ STRIPE_SECRET = os.getenv('STRIPE_SECRET')
 # https://docs.djangoproject.com/en/1.11/howto/static-files/
 
 # TO RUN LOCALLY HAVE THESE TWO UNCOMMENTED #
-
 STATIC_URL = '/static/'
 MEDIA_URL = '/media/'
-STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+
 
 
 # TO RUN ON HEROKU HAVE THESE UNCOMMENTED #
@@ -177,8 +169,6 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 # MEDIAFILES_LOCATION = 'media'
 # DEFAULT_FILE_STORAGE = 'custom_storages.MediaStorage'
 # MEDIA_URL = "https://%s/%s/" % (AWS_S3_CUSTOM_DOMAIN, MEDIAFILES_LOCATION)
-
-
 
    
  
