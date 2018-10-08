@@ -1,5 +1,4 @@
 *.sqlite3
-env.sh
 envname/
 myvenv/
 project3/Include
