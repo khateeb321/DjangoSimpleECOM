@@ -6,4 +6,4 @@ export DEBUG='True'
 export STRIPE_PUBLISHABLE_KEY='pk_test_D8LmMZeMzOVfijTx0iZijYXR'
 export STRIPE_SECRET_KEY='sk_test_nosB42kLHy53yocK3TRe5mRU'
 
-export DATABASE_URL=sqlite:///db.sqlite3
+export DATABASE_URL='sqlite:///db.sqlite3'
