@@ -48,12 +48,12 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'django_forms_bootstrap',
     'accounts',
     'products',
     'cart',
     'checkout',
     'storages',
+    'django_forms_bootstrap',
 ]
 
 MIDDLEWARE = [
