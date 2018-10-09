@@ -2,6 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f4bc97c7-9b42-4738-b5e4-49a825b19317" name="Default Changelist" comment="">
+<<<<<<< HEAD
+=======
+      <change beforePath="$PROJECT_DIR$/env.sh" beforeDir="false" afterPath="$PROJECT_DIR$/env.sh" afterDir="false" />
+>>>>>>> parent of d2eefc4... typo
       <change beforePath="$PROJECT_DIR$/project3/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/project3/settings.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -50,16 +54,27 @@
         <counts>
           <entry key="Procfile" value="8" />
           <entry key="gitignore" value="73" />
+<<<<<<< HEAD
           <entry key="py" value="163" />
           <entry key="sh" value="16" />
           <entry key="txt" value="1" />
+=======
+          <entry key="py" value="135" />
+          <entry key="sh" value="5" />
+>>>>>>> parent of d2eefc4... typo
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
+<<<<<<< HEAD
           <entry key="Bash" value="16" />
           <entry key="PLAIN_TEXT" value="82" />
           <entry key="Python" value="163" />
+=======
+          <entry key="Bash" value="5" />
+          <entry key="PLAIN_TEXT" value="73" />
+          <entry key="Python" value="135" />
+>>>>>>> parent of d2eefc4... typo
         </counts>
       </usages-collector>
     </session>
