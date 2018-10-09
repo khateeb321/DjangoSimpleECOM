@@ -12,19 +12,9 @@ https://docs.djangoproject.com/en/1.11/ref/settings/
 
 import os
 import dj_database_url
-import django_heroku
+
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-
-# Static files (CSS, JavaScript, Images)
-# https://docs.djangoproject.com/en/1.9/howto/static-files/
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
-STATIC_URL = '/static/'
-
-# Extra places for collectstatic to find static files.
-STATICFILES_DIRS = (
-    os.path.join(BASE_DIR, 'static'),
-)
 
 SITE_ID = 1
 
@@ -37,7 +27,7 @@ SECRET_KEY = 'g$^o@6fi@j71_$q2qjjqj(*873f%bd4bg4%k*6foyufx1df#t&'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = [os.environ.get('C9_HOSTNAME'), 'farm-ecom.herokuapp.com', '127.0.0.1']
+ALLOWED_HOSTS = [os.environ.get('C9_HOSTNAME'), 'farm-ecom.herokuapp.com']
 
 # Application definition
 
@@ -93,7 +83,21 @@ WSGI_APPLICATION = 'project3.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/1.11/ref/settings/#databases
 
-DATABASES['default'] =  dj_database_url.config()
+if "DATABASE_URL" in os.environ:
+    DATABASES = {'default': dj_database_url.parse(os.environ.get('DATABASE_URL'))}
+else:
+    print("Database URL not found. Using SQLite instead")
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.sqlite3',
+            'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+            'TEST': {
+                'NAME': 'project3_test',
+            },
+        }
+    }
+
+DATABASES = {'default': dj_database_url.parse(os.environ.get('DATABASE_URL'))}
 
 # Password validation
 # https://docs.djangoproject.com/en/1.11/ref/settings/#auth-password-validators
@@ -135,16 +139,18 @@ USE_TZ = True
 
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
+STATICFILES_DIRS = (
+    os.path.join(BASE_DIR, 'static'),
+   )
+
 STRIPE_PUBLISHABLE = os.getenv('STRIPE_PUBLISHABLE')
 STRIPE_SECRET = os.getenv('STRIPE_SECRET')
 
 # Static files (CSS, JavaScript, Images)
-# https://docs.djangoproject.com/en/1.11/howto/static-files/
 # https://docs.djangoproject.com/en/1.11/howto/static-files/
 
 # TO RUN LOCALLY HAVE THESE TWO UNCOMMENTED #
 # STATIC_URL = '/static/'
 # MEDIA_URL = '/media/'
 
-# Activate Django-Heroku.
-django_heroku.settings(locals())
+# TO RUN ON HEROKU HAVE THESE UNCOMMENTED #
