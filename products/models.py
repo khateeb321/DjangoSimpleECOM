@@ -1,16 +1,16 @@
 from django.db import models
 
 CATEGORY_CHOICES = (
-    (1, 'Fruits'),
-    (2, 'Vegetables'),
-    (3, 'Other'),
+    ('Fruit', 'Fruit'),
+    ('Vegetable', 'Vegetable'),
+    ('Other', 'Other'),
 )
 
 class Product(models.Model):
     name = models.CharField(max_length=254, default='')
     description = models.TextField()
     price = models.DecimalField(max_digits=6, decimal_places=2)
-    category = models.CharField(max_length=6, choices=CATEGORY_CHOICES, default=1)
+    category = models.CharField(max_length=10, choices=CATEGORY_CHOICES, default=1)
     image = models.ImageField(upload_to='images')
     
     def __str__(self):
