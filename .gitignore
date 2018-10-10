@@ -1,0 +1,8 @@
+*.sqlite3
+env.sh
+envname/
+myvenv/
+project3/Include
+project3/Lib
+project3/Scripts
+project3/tcl
