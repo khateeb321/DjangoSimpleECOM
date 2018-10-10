@@ -43,7 +43,6 @@ INSTALLED_APPS = [
     'products',
     'cart',
     'checkout',
-    'project3.Lib.site-packages.storages',
 ]
 
 MIDDLEWARE = [

@@ -14,7 +14,8 @@
 
 
 {% block content %}
-    <table class="table">
+    <div class="container">
+        <table class="table">
         <thead>
         <tr>
             <th>Image</th>
@@ -46,7 +47,7 @@
     </table>
     
 
-    <form role="form" method="post" id="payment-form" action="{% url 'checkout' %}">
+        <form role="form" method="post" id="payment-form" action="{% url 'checkout' %}">
         
     <legend>Payment Details</legend>
 
@@ -68,5 +69,5 @@
     </div>
 
     </form>
-
+    </div>
 {% endblock %}
