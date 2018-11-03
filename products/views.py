@@ -1,4 +1,5 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
+from django.http import HttpResponse
 from .models import Product
 from products.forms import ProductForm
 
@@ -31,16 +32,25 @@ def show(request):
 
 def edit(request, id):
     product = Product.objects.get(id=id)
+    product.category = ['Fruit', 'Vegetable']
     return render(request, 'edit.html', {'product': product})
 
 
 def update(request, id):
+    cat = ['Fruit', 'Vegetable']
     product = Product.objects.get(id=id)
-    form = Product(request.POST, instance=product)
+    # product.category = ['Fruit', 'Vegetable']
+    form = ProductForm(request.POST, instance=product)
+    selected_item = get_object_or_404(Product, pk=request.POST.get('category'))
+    # get the user you want (connect for example) in the var "user"
+    product.category = selected_item
     if form.is_valid():
         form.save()
-        return redirect("/show")
-    return render(request, 'edit.html', {'product': product})
+        return redirect("../../products/show")
+    else:
+        # Added else statment
+        msg = 'Errors: %s' % form.errors.as_text()
+        return HttpResponse(msg, status=400)
 
 
 def destroy(request, id):

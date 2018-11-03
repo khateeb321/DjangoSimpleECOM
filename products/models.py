@@ -1,9 +1,9 @@
 from django.db import models
 
 CATEGORY_CHOICES = (
-    ('Fruit', 'Fruit'),
-    ('Vegetable', 'Vegetable'),
-    ('Other', 'Other'),
+    ('1', 'Fruit'),
+    ('2', 'Vegetable'),
+    ('3', 'Other'),
 )
 
 class Product(models.Model):
