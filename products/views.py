@@ -42,11 +42,8 @@ def edit(request, id):
 
 def update(request, id):
     product = Product.objects.get(id=id)
-    # product.category = ['Fruit', 'Vegetable']
     form = ProductForm(request.POST, instance=product)
-    selected_item = get_object_or_404(Product, pk=request.POST.get('category'))
-    # get the user you want (connect for example) in the var "user"
-    product.category = selected_item
+    
     if form.is_valid():
         form.save()
         return redirect("../../products/show")
