@@ -32,12 +32,11 @@ def show(request):
 
 def edit(request, id):
     product = Product.objects.get(id=id)
-    product.category = ['Fruit', 'Vegetable']
+    product.category = ['Fruit', 'Vegetable', 'Other']
     return render(request, 'edit.html', {'product': product})
 
 
 def update(request, id):
-    cat = ['Fruit', 'Vegetable']
     product = Product.objects.get(id=id)
     # product.category = ['Fruit', 'Vegetable']
     form = ProductForm(request.POST, instance=product)
