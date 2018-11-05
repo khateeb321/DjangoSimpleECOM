@@ -13,13 +13,17 @@ def all_products(request):
 
 def emp(request):
     if request.method == "POST":
-        form = ProductForm(request.POST)
+        form = ProductForm(request.POST, request.FILES)
         if form.is_valid():
             try:
                 form.save()
-                return redirect('/show')
+                return redirect("../../products/show")
             except:
                 pass
+        else:
+            # Added else statment
+            msg = 'Errors: %s' % form.errors.as_text()
+            return HttpResponse(msg, status=400)
     else:
         form = ProductForm()
     return render(request, 'index.html', {'form': form})
@@ -55,4 +59,4 @@ def update(request, id):
 def destroy(request, id):
     product = Product.objects.get(id=id)
     product.delete()
-    return redirect("/show")
+    return redirect("../../products/show")
