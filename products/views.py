@@ -16,7 +16,9 @@ def emp(request):
         form = ProductForm(request.POST, request.FILES)
         if form.is_valid():
             try:
-                form.save()
+                obj = form.save(commit=False)
+                obj.uploadedBy = request.user
+                obj.save()
                 return redirect("../../products/show")
             except:
                 pass
@@ -30,7 +32,7 @@ def emp(request):
 
 
 def show(request):
-    products = Product.objects.all()
+    products = Product.objects.filter(uploadedBy=request.user)
     return render(request, "show.html", {'products': products})
 
 
