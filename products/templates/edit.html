@@ -1,5 +1,6 @@
 {% extends "base.html" %}
 {% block content %}
+    <div class="container">
     <form method="POST" class="post-form" action="/products/update/{{product.id}}" enctype="multipart/form-data">
         {% csrf_token %}
     <div class="container">
@@ -61,4 +62,5 @@
   </div>
     </div>
 </form>
+    </div>
 {% endblock %}

@@ -1,5 +1,6 @@
 {% extends "base.html" %}
 {% block content %}
+    <div class="container">
     <form method="POST" class="post-form" action="/products/emp" enctype="multipart/form-data">
             {% csrf_token %}
         <div class="container">
@@ -47,6 +48,6 @@
         <button type="submit" name="submit" class="btn btn-primary">Submit</button>
         </div>
       </div>
-        </div>
     </form>
+    </div>
 {% endblock %}
