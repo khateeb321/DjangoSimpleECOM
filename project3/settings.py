@@ -27,7 +27,7 @@ SECRET_KEY = 'g$^o@6fi@j71_$q2qjjqj(*873f%bd4bg4%k*6foyufx1df#t&'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*', 'ecompython.azurewebsites.net']
 
 # Application definition
 
