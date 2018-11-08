@@ -156,7 +156,7 @@ AWS_S3_OBJECT_PARAMETERS = {  # see http://developer.yahoo.com/performance/rules
         'CacheControl': 'max-age=94608000',
     }
 
-AWS_STORAGE_BUCKET_NAME = os.environ.get('farm-ecom-static')
+AWS_STORAGE_BUCKET_NAME = 'farm-ecom-static'
 AWS_S3_REGION_NAME = 'us-east-2'
 AWS_ACCESS_KEY_ID = 'AKIAIMGYDGOWFTJEO4PQ'
 AWS_SECRET_ACCESS_KEY = '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'
