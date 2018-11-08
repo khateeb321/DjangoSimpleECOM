@@ -16,6 +16,16 @@ import dj_database_url
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
+# Static files (CSS, JavaScript, Images)
+# https://docs.djangoproject.com/en/1.9/howto/static-files/
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+STATIC_URL = '/static/'
+
+# Extra places for collectstatic to find static files.
+STATICFILES_DIRS = (
+    os.path.join(BASE_DIR, 'static'),
+)
+
 SITE_ID = 1
 
 # Quick-start development settings - unsuitable for production
@@ -27,7 +37,7 @@ SECRET_KEY = 'g$^o@6fi@j71_$q2qjjqj(*873f%bd4bg4%k*6foyufx1df#t&'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [os.environ.get('C9_HOSTNAME'), 'farm-ecom.herokuapp.com', '127.0.0.1']
 
 # Application definition
 
@@ -43,6 +53,7 @@ INSTALLED_APPS = [
     'products',
     'cart',
     'checkout',
+    'storages',
 ]
 
 MIDDLEWARE = [
@@ -69,7 +80,7 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
-                'django.template.context_processors.media', 
+                'django.template.context_processors.media',
                 'cart.contexts.cart_contents',
             ],
         },
@@ -77,19 +88,14 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'project3.wsgi.application'
+DATABASE_URL = 'postgres://opjocbiljrkpps:c4dce0766a83b876b695acb9237c6e99527717506b68ffa007122e46e01422b9@ec2-54-247-101-205.eu-west-1.compute.amazonaws.com:5432/d3ksql4vp9t5r1'
 
 
 # Database
 # https://docs.djangoproject.com/en/1.11/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-    }
-}
+DATABASES = {'default': dj_database_url.parse('postgres://opjocbiljrkpps:c4dce0766a83b876b695acb9237c6e99527717506b68ffa007122e46e01422b9@ec2-54-247-101-205.eu-west-1.compute.amazonaws.com:5432/d3ksql4vp9t5r1')}
 
-# DATABASES = {'default': dj_database_url.parse(os.environ.get('DATABASE_URL'))}
 
 # Password validation
 # https://docs.djangoproject.com/en/1.11/ref/settings/#auth-password-validators
@@ -131,43 +137,13 @@ USE_TZ = True
 
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
-STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, "static"),
-]
-
 STRIPE_PUBLISHABLE = os.getenv('STRIPE_PUBLISHABLE')
 STRIPE_SECRET = os.getenv('STRIPE_SECRET')
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.11/howto/static-files/
+# https://docs.djangoproject.com/en/1.11/howto/static-files/
 
 # TO RUN LOCALLY HAVE THESE TWO UNCOMMENTED #
-STATIC_URL = '/static/'
-MEDIA_URL = '/media/'
-
-
-
-# TO RUN ON HEROKU HAVE THESE UNCOMMENTED #
-
-# AWS_S3_OBJECT_PARAMETERS = {  # see http://developer.yahoo.com/performance/rules.html#expires
-#        'Expires': 'Thu, 31 Dec 2099 20:00:00 GMT',
-#        'CacheControl': 'max-age=94608000',
-#    }
-#
-# AWS_STORAGE_BUCKET_NAME = os.environ.get('BUCKET_NAME')
-# AWS_S3_REGION_NAME = 'eu-west-1'
-# AWS_ACCESS_KEY_ID = os.environ.get('AWS_ACCESS_KEY_ID')
-# AWS_SECRET_ACCESS_KEY = os.environ.get('AWS_SECRET_ACCESS_KEY')
-#
-# AWS_S3_CUSTOM_DOMAIN = '%s.s3.amazonaws.com' % AWS_STORAGE_BUCKET_NAME
-#
-# STATICFILES_LOCATION = 'static'
-# STATICFILES_STORAGE = 'custom_storages.StaticStorage'
-# STATIC_URL = "https://%s/%s/" % (AWS_S3_CUSTOM_DOMAIN, STATICFILES_LOCATION)
-#
-# MEDIAFILES_LOCATION = 'media'
-# DEFAULT_FILE_STORAGE = 'custom_storages.MediaStorage'
-# MEDIA_URL = "https://%s/%s/" % (AWS_S3_CUSTOM_DOMAIN, MEDIAFILES_LOCATION)
-
-   
- 
+# STATIC_URL = '/static/'
+# MEDIA_URL = '/media/'
