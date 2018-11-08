@@ -34,7 +34,7 @@ urlpatterns = [
     url(r'^user/', include(urls_accounts)),
     url(r'^search/', include(urls_search)),
     url(r'^media/(?P<path>.*)$', static.serve, {'document_root': MEDIA_ROOT}),
-    url(r'^static/(?P.*)$', static.serve, {'document_root': settings.STATIC_ROOT}),
+    url(r'^static/(?P<path>.*)$', static.serve, {'document_root': settings.STATIC_ROOT}),
 
 ]
 
