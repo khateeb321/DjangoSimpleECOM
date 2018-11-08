@@ -77,8 +77,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/project3/settings.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="249">
-              <caret line="141" lean-forward="true" selection-start-line="141" selection-end-line="141" />
+            <state relative-caret-position="208">
+              <caret line="18" column="40" lean-forward="true" selection-start-line="18" selection-start-column="40" selection-end-line="18" selection-end-column="40" />
               <folding>
                 <element signature="e#312#321#0" expanded="true" />
               </folding>
@@ -121,6 +121,7 @@
       <find>cate</find>
       <find>redirect</find>
       <find>login</find>
+      <find>STATIC_URL</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -459,8 +460,8 @@
     <entry file="file://$PROJECT_DIR$/env.sh" />
     <entry file="file://$PROJECT_DIR$/project3/settings.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="249">
-          <caret line="141" lean-forward="true" selection-start-line="141" selection-end-line="141" />
+        <state relative-caret-position="208">
+          <caret line="18" column="40" lean-forward="true" selection-start-line="18" selection-start-column="40" selection-end-line="18" selection-end-column="40" />
           <folding>
             <element signature="e#312#321#0" expanded="true" />
           </folding>
