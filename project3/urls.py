@@ -14,7 +14,7 @@ Including another URLconf
 """
 from django.conf.urls import url, include
 from django.contrib import admin
-from django.conf import settings
+from project3 import  settings
 from products.views import all_products
 from accounts import urls as urls_accounts
 from products import urls as urls_products
@@ -34,4 +34,7 @@ urlpatterns = [
     url(r'^user/', include(urls_accounts)),
     url(r'^search/', include(urls_search)),
     url(r'^media/(?P<path>.*)$', static.serve, {'document_root': MEDIA_ROOT}),
+    url(r'^static/(?P.*)$', 'django.views.static.serve', {'document_root': settings.STATIC_ROOT}),
+
 ]
+
