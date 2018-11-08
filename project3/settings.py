@@ -16,6 +16,15 @@ import dj_database_url
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
+# Static files (CSS, JavaScript, Images)
+# https://docs.djangoproject.com/en/1.9/howto/static-files/
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+STATIC_URL = '/static/'
+
+# Extra places for collectstatic to find static files.
+STATICFILES_DIRS = (
+    os.path.join(BASE_DIR, 'static'),
+)
 
 SITE_ID = 1
 
@@ -79,19 +88,13 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'project3.wsgi.application'
+DATABASE_URL = 'postgres://opjocbiljrkpps:c4dce0766a83b876b695acb9237c6e99527717506b68ffa007122e46e01422b9@ec2-54-247-101-205.eu-west-1.compute.amazonaws.com:5432/d3ksql4vp9t5r1'
 
 
 # Database
 # https://docs.djangoproject.com/en/1.11/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-    }
-}
-
-# DATABASES = {'default': dj_database_url.parse(os.environ.get('DATABASE_URL'))}
+DATABASES = {'default': dj_database_url.parse('postgres://opjocbiljrkpps:c4dce0766a83b876b695acb9237c6e99527717506b68ffa007122e46e01422b9@ec2-54-247-101-205.eu-west-1.compute.amazonaws.com:5432/d3ksql4vp9t5r1')}
 
 
 # Password validation
@@ -134,10 +137,6 @@ USE_TZ = True
 
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
-STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, "static"),
-]
-
 STRIPE_PUBLISHABLE = os.getenv('STRIPE_PUBLISHABLE')
 STRIPE_SECRET = os.getenv('STRIPE_SECRET')
 
@@ -146,6 +145,5 @@ STRIPE_SECRET = os.getenv('STRIPE_SECRET')
 # https://docs.djangoproject.com/en/1.11/howto/static-files/
 
 # TO RUN LOCALLY HAVE THESE TWO UNCOMMENTED #
-STATIC_URL = '/static/'
-MEDIA_URL = '/media/'
-
+# STATIC_URL = '/static/'
+# MEDIA_URL = '/media/'
